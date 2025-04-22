@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana à Milanesa - Restaurante</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.5rem;
+            z-index: 1;
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            z-index: 1;
+            background-color: #ff9800;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e68900;
+        }
+
+        /* Seção Sobre */
+        #sobre {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        #sobre h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff9800;
+        }
+
+        #sobre p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Seção Cardápio */
+        #cardapio {
+            padding: 50px 20px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        #cardapio h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ff9800;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .menu-item h3 {
+            margin: 15px 0;
+            font-size: 1.5rem;
+        }
+
+        .menu-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Seção Depoimentos */
+        #depoimentos {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        #depoimentos h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ff9800;
+        }
+
+        .depoimento {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .depoimento span {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Seção Contato */
+        #contato {
+            padding: 50px 20px;
+            background-color: #ff9800;
+            color: white;
+            text-align: center;
+        }
+
+        #contato h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        #contato p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .contact-form button {
+            background-color: #fff;
+            color: #ff9800;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .form-message {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #333;
+            color: white;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div>
+            <h1>Banana à Milanesa</h1>
+            <p>Saboreie a melhor banana à milanesa da cidade!</p>
+            <a href="#cardapio" class="cta-button">Veja o Cardápio</a>
+        </div>
+    </header>
+
+    <!-- Seção Sobre -->
+    <section id="sobre">
+        <h2>Sobre Nós</h2>
+        <p>No Banana à Milanesa, celebramos o sabor único da banana frita empanada, feita com os melhores ingredientes e muito carinho. Nossa missão é oferecer uma experiência gastronômica inesquecível, unindo tradição e criatividade em cada prato. Venha nos visitar e experimente nossas delícias!</p>
+    </section>
+
+    <!-- Seção Cardápio -->
+    <section id="cardapio">
+        <h2>Nosso Cardápio</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1599122103898-8a9d4b9e9bc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Banana à Milanesa Clássica">
+                <h3>Banana à Milanesa Clássica</h3>
+                <p>Banana frita empanada, servida com mel e canela.</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Banana à Milanesa com Chocolate">
+                <h3>Banana à Milanesa com Chocolate</h3>
+                <p>Banana empanada coberta com chocolate derretido e granulado.</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Banana à Milanesa Salgada">
+                <h3>Banana à Milanesa Salgada</h3>
+                <p>Banana empanada com toque de sal, acompanhada de molho especial.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Depoimentos -->
+    <section id="depoimentos">
+        <h2>O Que Nossos Clientes Dizem</h2>
+        <div class="depoimento">
+            "A melhor banana à milanesa que já provei! O sabor é incrível e o ambiente super aconchegante!"<span>- Maria S.</span>
+        </div>
+        <div class="depoimento">
+            "Adorei a variedade do cardápio. A banana com chocolate é simplesmente divina!"<span>- João P.</span>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato">
+        <h2>Entre em Contato</h2>
+        <p>📍 Rua das Bananas, 123 - Centro, Cidade</p>
+        <p>📞 (11) 98765-4321</p>
+        <p>📧 contato@bananaamilanesa.com</p>
+        <p>Horário: Seg-Sex 10h-22h | Sáb-Dom 12h-23h</p>
+        
+        <!-- Formulário de Contato -->
+        <form id="contact-form" class="contact-form">
+            <input type="text" id="name" placeholder="Seu Nome" required>
+            <input type="email" id="email" placeholder="Seu Email" required>
+            <textarea id="message" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+            <div id="form-message" class="form-message"></div>
+        </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2025 Banana à Milanesa. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Incluindo o JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
